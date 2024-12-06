@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keuangan Pribadi - Tema Gelap</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans">
+
+  <!-- Navbar -->
+  <header class="bg-gray-800 p-4 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-orange-400 text-xl font-bold">Keuangan Pribadi</h1>
+      <nav>
+        <a href="#home" class="text-gray-100 hover:text-orange-400 px-3">Home</a>
+        <a href="#transactions" class="text-gray-100 hover:text-orange-400 px-3">Transaksi</a>
+        <a href="#journal" class="text-gray-100 hover:text-orange-400 px-3">Jurnal</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home" class="container mx-auto p-6">
+    <h2 class="text-2xl font-bold mb-4">Ringkasan Keuangan</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <div class="bg-gray-800 p-4 rounded-lg shadow">
+        <h3 class="text-lg font-semibold text-orange-400">Saldo Saat Ini</h3>
+        <p id="current-balance" class="text-3xl font-bold text-green-400">Rp0</p>
+      </div>
+      <div class="bg-gray-800 p-4 rounded-lg shadow">
+        <h3 class="text-lg font-semibold text-orange-400">Pemasukan Bulan Ini</h3>
+        <p id="total-income" class="text-3xl font-bold text-blue-400">Rp0</p>
+      </div>
+      <div class="bg-gray-800 p-4 rounded-lg shadow">
+        <h3 class="text-lg font-semibold text-orange-400">Pengeluaran Bulan Ini</h3>
+        <p id="total-expense" class="text-3xl font-bold text-red-400">Rp0</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Transaksi Section -->
+  <section id="transactions" class="container mx-auto p-6">
+    <h2 class="text-2xl font-bold mb-4">Tambah Transaksi</h2>
+    <form id="transaction-form" class="bg-gray-800 p-4 rounded-lg shadow">
+      <div class="mb-4">
+        <label for="transaction-type" class="block text-sm font-medium text-gray-100">Tipe Transaksi</label>
+        <select id="transaction-type" class="w-full p-2 bg-gray-700 text-gray-100 border border-gray-600 rounded">
+          <option value="income">Pemasukan</option>
+          <option value="expense">Pengeluaran</option>
+        </select>
+      </div>
+      <div class="mb-4">
+        <label for="amount" class="block text-sm font-medium text-gray-100">Jumlah</label>
+        <input type="number" id="amount" class="w-full p-2 bg-gray-700 text-gray-100 border border-gray-600 rounded" placeholder="Masukkan jumlah">
+      </div>
+      <div class="mb-4">
+        <label for="description" class="block text-sm font-medium text-gray-100">Deskripsi</label>
+        <input type="text" id="description" class="w-full p-2 bg-gray-700 text-gray-100 border border-gray-600 rounded" placeholder="Contoh: Gaji, Belanja">
+      </div>
+      <button type="button" id="add-transaction" class="bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600">
+        Tambah Transaksi
+      </button>
+    </form>
+  </section>
+
+  <!-- Riwayat Transaksi -->
+  <section id="transaction-history" class="container mx-auto p-6">
+    <h2 class="text-2xl font-bold mb-4">Riwayat Transaksi</h2>
+    <div class="overflow-auto bg-gray-800 rounded-lg shadow">
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr class="bg-gray-700 text-gray-100">
+            <th class="p-2 border-b border-gray-600">Tanggal & Waktu</th>
+            <th class="p-2 border-b border-gray-600">Tipe</th>
+            <th class="p-2 border-b border-gray-600">Jumlah</th>
+            <th class="p-2 border-b border-gray-600">Deskripsi</th>
+          </tr>
+        </thead>
+        <tbody id="transaction-history-body">
+          <!-- Data transaksi akan ditambahkan dengan JavaScript -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Jurnal Section -->
+  <section id="journal" class="container mx-auto p-6">
+    <h2 class="text-2xl font-bold mb-4">Jurnal Harian</h2>
+    <form id="journal-form" class="bg-gray-800 p-4 rounded-lg shadow">
+      <div class="mb-4">
+        <label for="journal-date" class="block text-sm font-medium text-gray-100">Tanggal</label>
+        <input type="date" id="journal-date" class="w-full p-2 bg-gray-700 text-gray-100 border border-gray-600 rounded">
+      </div>
+      <div class="mb-4">
+        <label for="journal-entry" class="block text-sm font-medium text-gray-100">Catatan</label>
+        <textarea id="journal-entry" class="w-full p-2 bg-gray-700 text-gray-100 border border-gray-600 rounded" rows="4" placeholder="Tuliskan catatan harian..."></textarea>
+      </div>
+      <button type="button" id="add-journal" class="bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600">
+        Simpan Catatan
+      </button>
+    </form>
+    <h3 class="text-xl font-bold mt-6">Catatan Jurnal</h3>
+    <ul id="journal-list" class="mt-4 bg-gray-800 p-4 rounded-lg shadow">
+      <!-- Catatan jurnal akan ditambahkan dengan JavaScript -->
+    </ul>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
